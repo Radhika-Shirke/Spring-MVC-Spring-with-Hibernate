@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+<!-- Setter Injection -->
+<!-- <bean id="cust" class="com.Spring.Customer">
+<property name="id" value="100"></property>
+<property name="name" value="Anna"></property>
+</bean> -->
+ 
+<!--  Constructor Injection-->
+<!-- <bean id="cust1" class="com.Spring.Customer">
+<constructor-arg type="int" value="300"></constructor-arg>
+<constructor-arg value="David"></constructor-arg>
+</bean> -->
+
+<!-- <bean id="cust" class="com.Spring.Customer" autowire = "byType">
+<constructor-arg type="int" value="300"></constructor-arg>
+<constructor-arg value="David"></constructor-arg>
+</bean> -->
+
+<!-- <bean id="cust" class="com.Spring.Customer" autowire = "constructor">
+<constructor-arg type="int" value="300"></constructor-arg>
+<constructor-arg type = "String" value="David"></constructor-arg>
+</bean> -->
+
+
+<!-- <bean id="cust" class="com.Spring.Customer" autowire = "constructor">
+<constructor-arg type="int" value="300"></constructor-arg>
+<constructor-arg type = "String" value="David"></constructor-arg>
+<constructor-arg >
+<ref bean = "contact"></ref>
+</constructor-arg>
+</bean> -->
+
+<bean id="cust" class="com.Spring.Customer" autowire = "byName">
+<property name = "id" value="500"></property>
+<property name = "name" value="David"></property>
+<property name="con" ref = "contact"></property>
+</bean>
+
+<!-- <bean id="cust" class="com.Spring.Customer" autowire = "byName">
+<property name = "id" value="500"></property>
+<property name = "name" value="David"></property>
+</bean> -->
+
+<!--  Reference tag in constructor -->
+<bean id = "contact" class = "com.Spring.Contact">
+<constructor-arg value="29i320"></constructor-arg>
+<constructor-arg value="David@gmail.com"></constructor-arg>
+</bean>
+
+
+
+<!-- ERROR Multiple References of byType for one obj of contact -->
+<!-- <bean id = "contact1" class = "com.Spring.Contact">
+<constructor-arg value="29i320"></constructor-arg>
+<constructor-arg value="David@gmail.com"></constructor-arg>
+</bean>
+ -->
+<!-- <bean id="cust" class="com.Spring.Customer" autowire = "byName">
+<property name = "id" value="300"></property>
+<property name = "name" value="David"></property>
+<property name="con" ref = "contact"></property>
+</bean> -->
+
+ 
+</beans>
